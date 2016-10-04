@@ -1,0 +1,196 @@
+<!--estructura del modal/idea en moderacion-->
+<!--<div id="alerta-modal" class="modal">-->
+<!--<div class="modal-content">-->
+<!--<h4>Idea Recibida</h4>-->
+<!--<p>Hemos recibido tu idea con éxito y dentro de las proxímas <strong>X</strong> horas será revisada por nuestro equipo para ser aprobada</p>-->
+<!--</div>-->
+<!--<div class="modal-footer">-->
+<!--<a ui-sref="inicio" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>-->
+<!--</div>-->
+<!--</div>-->
+<div ng-controller="UpIdeaCtrl">
+    <section>
+        <div class="section center imagen-registro">
+            <h3 class="thin">Sube tu <img src="app/images/logo-negro.png" width="45px" height="45px"><strong class="bold"></strong> </h3>
+        </div>
+        <form class="row" name="formulario" novalidate>
+            <div class="center col s12 m10 offset-m1">
+                <p class="flow-text">Registra tu idea.</p>
+            </div>
+
+            <!--columna izquierda-->
+            <div class="col s12 m4 offset-m1">
+            <span class="input-field">
+                <label>Título de la Idea</label>
+                <input type="text" ng-model="nombre" id="titulo_idea" class="validate" maxlength="70" length="70" required>
+
+            </span>
+                <div class="input-field">
+                    <label>Breve Descripción del Proyecto</label>
+                    <textarea ng-model="descripcion_corta" id="short_idea" class="materialize-textarea validate" maxlength="140" length="140" required></textarea>
+
+                </div>
+                <div class="input-field">
+                    <label>Descripción del Proyecto</label>
+                    <textarea ng-model="descripcion" id="desc_idea" class="materialize-textarea" length="2000" maxlength="2000" required></textarea>
+
+                </div>
+                <br>
+                <select class="browser-default" ng-model="categoria" required>
+                    <option value="" disabled selected>Categoría</option>
+                    <option ng-repeat="item in categorias" value="{{item.val}}">{{item.name}}</option>
+                </select>
+                <br>
+                <select class="browser-default" ng-model="beneficiario" required>
+                    <option value="" disabled selected>a Quien Beneficia</option>
+                    <option ng-repeat="x in beneficiarios" value="{{x.val}}">{{x.name}}</option>
+                </select>
+            </div>
+
+            <!--columna derecha-->
+            <div class="col s12 m4 offset-m2">
+                <div class="input-field">
+                    <label class="left-align" for="youtube">Link Video (Youtube)</label>
+                    <input id="youtube"  type="url" ng-model="url_vid">
+
+                </div>
+                <div class="file-field input-field">
+                    <div class="btn grey darken-1">
+                        <span>Foto 1</span>
+                        <input type="file" id="img_prin" ng-model="img_prin" accept="image/*" required base-sixty-four-input>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Sube tu imagen Principal">
+                    </div>
+                </div>
+                <div class="file-field input-field">
+                    <div class="btn grey darken-1">
+                        <span>Foto 2</span>
+                        <input type="file" ng-model="img_2" accept="image/*"  base-sixty-four-input>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path" type="text" placeholder="Sube tu segunda imagen">
+                    </div>
+                </div>
+                <div class="file-field input-field">
+                    <div class="btn grey darken-1">
+                        <span>Foto 3</span>
+                        <input type="file" ng-model="img_3" accept="image/*" base-sixty-four-input>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path" type="text" placeholder="Sube tu tercera imagen"  >
+                    </div>
+                </div>
+                <div class="file-field input-field">
+                    <div class="btn grey darken-1">
+                        <span>Foto 4</span>
+                        <input type="file" ng-model="img_4" accept="image/*" base-sixty-four-input>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path" type="text" placeholder="Sube tu cuarta imagen"  >
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row center">
+            <button ng-click="ver()" class="btn"  ng-disabled="!formulario.$valid">Vista Previa</button>
+
+        </div>
+
+
+    </section>
+    <div class="divider"></div>
+    <br>
+    <br>
+    <div ng-show="mostrar" >
+        <section id="vista_previa" >
+            <div class="idea-header">
+                <br>
+                <br>
+                <div class="center">
+                    <h3 class="white-text">{{nombre}}</h3>
+                </div>
+                <br>
+                <br>
+            </div>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="center" style="padding: 0 10px">
+                        <div class="card">
+                            <div class="card-image" id="imagen-detalle-noticia">
+                                <img materialboxed class="materialboxed"  ng-src="{{'data:image/png;base64,'+img_prin.base64}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="s12 ">
+                        <div class="col s12 m8">
+                            <div class="card-panel">
+                                <h5>Descripción de la Idea</h5>
+                                <p class="letra-detproy">{{descripcion_corta}}</p>
+                                <p class="letra-detproy">{{descripcion}}</p>
+
+                            </div>
+                            <div class="card-panel">
+                                <h5>Video</h5>
+                                <!--<div class="video-container">-->
+                                <!--<iframe width="853" height="480" src="//" frameborder="0" allowfullscreen></iframe>-->
+                                <!--</div>-->
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <youtube-video class="embed-responsive-item"  player="Video" video-url="url_vid"></youtube-video>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col s12 m4">
+                            <div class="white">
+                                <div class="center">
+                                    <div class="card-panel">
+                                        <p>{{autor_idea}}</p>
+                                        <p class="letra-detproy">Categoría: {{categorianame}}</p>
+                                        <p class="letra-detproy">Patología: {{beneficiarioname}}</p>
+                                        <p class="letra-detproy">Votos: 0</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <!--<img class="responsive-img" src="app/images/ideatonidea.svg">-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <br>
+                <h5 class="titulo">Imágenes</h5>
+                <div class="card-panel">
+                    <div class="row">
+                        <div class="col s12 m4" >
+                            <img materialboxed class="materialboxed responsive-img" ng-src="{{'data:image/png;base64,'+img_2.base64}}">
+                        </div>
+                        <div class="col s12 m4" >
+                            <img materialboxed class="materialboxed responsive-img" ng-src="{{'data:image/png;base64,'+img_3.base64}}">
+                        </div>
+                        <div class="col s12 m4" >
+                            <img materialboxed class="materialboxed responsive-img" ng-src="{{'data:image/png;base64,'+img_4.base64}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m12" >
+                    <a href=""  ng-click="editando()" class="waves-effect waves-light btn-large"><i class="material-icons left">mode_edit</i>Seguir Editando</a>
+                </div>
+
+                <div class="col s12 m12" >
+                    <a href=""  ng-click="UpIdea()" class="waves-effect waves-light btn-large green"><i class="material-icons left">note_add</i>Subir Idea</a>
+
+                </div>
+            </div>
+            <!---->
+
+
+        </section>
+    </div>
+</div>

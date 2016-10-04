@@ -1,0 +1,239 @@
+body{
+    background-image: url('../images/background-ampolletas.svg');
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Baloo Paaji', cursive;
+}
+.bases{
+    border: 2px solid;
+    border-color: #4caf50;
+}
+.side-nav .collapsible-header, .side-nav.fixed .collapsible-header{
+    padding: 0;
+}
+ul#categorias, ul#salir{
+    margin-top: 100px;
+    width: 130px !important;
+}
+.dropdown-content li:hover, .dropdown-content li.active, .dropdown-content li.selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+#guardar{
+    position: center;
+}
+iframe{
+    width: 100%;
+    height: 650px;
+}
+.titulo{
+    margin: 10px;
+}
+nav{
+    height: 100px;
+}
+nav ul a {
+    padding: 17px 15px;
+    font-size: 20px;
+}
+nav ul a i{
+    padding: 0;
+    margin-right: 5px !important;
+}
+nav ul a:hover{
+    color: #4caf50;
+}
+.dropdown-content li > a:hover{
+    color: #4caf50 !important;
+}
+nav i.material-icons{
+    margin-top: 12px;
+}
+/*footer redes sociales*/
+.redes-sociales{
+    font-size: 200%;
+}
+.follow_us i{
+    color: white;
+}
+.follow_us i:hover{
+    color: #282828;
+}
+/**********************/
+.brand-logo img{
+    width: 200px;
+    margin: 8px;
+}
+@media(max-width: 600px){
+    .brand-logo img{
+        width: 65%;
+        margin: 8px;
+    }
+    nav{
+        height: 64px;
+    }
+}
+#logo-nav-bar{
+    margin: 8px 0 0 8px;
+    width: 60%;
+}
+/*ventana modal*/
+#login-modal{
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    max-height: 500px;
+}
+.logo-modal {
+    width: 100%;
+    max-width: 294px;
+    max-height: 121px;
+}
+.logo-responsive{
+    width: 100%;
+}
+/**********************/
+.button-google {
+    color: white;
+    background: #dd4b39;
+}
+.button-twitter {
+    color: white;
+    background: #00bcf2;
+}
+.button-facebook {
+    color: white;
+    background: #3b5998;
+}
+.button-linkedin {
+    color: white;
+    background: #0077b5;
+}
+.button-github {
+    color: white;
+    background: #9c27b0;
+}
+.imagen-registro{
+    width: 100%;
+}
+
+/*detalle-proyecto*/
+.idea-header{
+    background-image: url("../images/ideaheader.png");
+}
+.side-nav li{
+    line-height: 0;
+}
+footer{
+    background-image: url('../images/patternbnb.svg');
+    background-size: 30%;
+}
+/*transicion de blanco y negro a color en imagenes*/
+.img-blanco-negro{
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    transition:filter 0.4s;
+    -webkit-transition:-webkit-filter 1s;
+}
+.img-blanco-negro:hover {
+    filter: grayscale(0);
+    -webkit-filter: grayscale(0);
+}
+/*************************************************/
+.follow_us{
+    min-height: 82px;
+}
+.follow_us a{
+    margin-right: 15px;
+}
+i.fa p{
+    font-size: 15px;
+}
+img.materialboxed{
+    width: 60%;
+}
+img.circle.responsive-img{
+    border: solid 4px;
+    border-color: #4caf50;
+}
+
+/*letras de color con contorno de otro color*/
+.stroke {
+    -webkit-text-stroke: 1.5px black;
+}
+
+.embed-responsive {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.embed-responsive.embed-responsive-16by9 {
+    padding-bottom: 56.25%;
+}
+
+.embed-responsive-item {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+section#jurado img.circle{
+    width: 200px;
+    height: 200px;
+}
+
+/*Don Fran Toasty*/
+#donfran{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-delay: 0.5s;
+    /*-webkit-animation-iteration-count: infinite;*/
+
+    -moz-animation-duration: 0.3s;
+    -moz-animation-delay: 0.5s;
+    /*-moz-animation-iteration-count: infinite;*/
+}
+.card .card-image#imagen-detalle-noticia{
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.card.medium .card-image{
+    max-height: 50%;
+}
+
+.usericon {
+    margin-top: 0px!important;
+}
+.ir-arriba {
+    display:none;
+}
+.justify{
+    text-align: justify;
+}
+#panel-compartir-noticias{
+    padding: 15px 0;
+}
+
+.cardfome{
+    display: block;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    overflow:hidden;
+
+}
+
+

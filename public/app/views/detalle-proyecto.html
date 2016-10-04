@@ -1,0 +1,155 @@
+<section ng-controller="IdeaCtrl">
+    <div class="idea-header">
+        <br>
+        <br>
+        <div class="center">
+            <h3 class="white-text">{{title}}</h3>
+        </div>
+        <br>
+        <br>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="center" style="padding: 0 10px">
+                <div class="card">
+                    <div class="card-image" id="imagen-detalle-noticia">
+                        <img materialboxed class="materialboxed" ng-src="{{img_prin}}">
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m8">
+                <div class="card-panel">
+                    <h5>Descripcion Breve</h5>
+                    <p class="letra-detproy" ng-bind-html="descripcion_corta"></p>
+                </div>
+                <div class="card-panel">
+                    <h5>Descripción del Proyecto</h5>
+                    <p class="letra-detproy" ng-bind-html="descripcion"></p>
+                </div>
+                <div class="card-panel">
+                    <h5>Video</h5>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <youtube-video class="embed-responsive-item" video-url="url_vid"></youtube-video>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="white">
+                    <div class="center">
+                        <div class="card-panel">
+                            <p>{{autor}} {{autor_last}}</p>
+                            <p class="letra-detproy">Ubicación:{{comuna}}</p>
+                            <p class="letra-detproy">Categoría: {{categoria}}</p>
+                            <p class="letra-detproy">Patología: {{beneficiario}}</p>
+                            <p class="letra-detproy">Votos: {{votos}}</p>
+                            <div ng-controller="ValidarReg">
+                                <div ng-controller="ValidarVotoCtrl">
+                                <div class="color-scroll" ng-hide="islogin"><a class="btn blue darken-4" href='#login-modal' modal>Ingresa para Votar!</a></div>
+                                  <div  ng-show="islogin" ng-controller="VotosCtrl">
+                                   <button id="votar" ng-hide="isvote" class="pink btn-large" ng-click="Votar()"><i class="fa fa-heart"></i><span>Apoyar</span></button>
+                                  </div>
+                               </div>
+                            </div>
+                            <br>
+                            <h6>Compártelo en tus Redes Sociales</h6>
+                            <div class="center">
+
+                                <button class="btn-floating button-facebook"
+                                        socialshare
+                                        socialshare-provider="facebook"
+                                        socialshare-type="sharer"
+                                        socialshare-text="{{title}}"
+                                        socialshare-url="www.ideaton.cl/#/detalle-idea/{{id_idea}}"
+                                        socialshare-popup-height="300"
+                                        socialshare-popup-width="400"
+                                        socialshare-trigger="click">
+                                    <i class="fa fa-facebook"></i>
+                                </button>
+                                <a
+                                        socialshare
+                                        socialshare-provider="twitter"
+                                        socialshare-text="{{title}}"
+                                        socialshare-via="teleton"
+                                        socialshare-hashtags="ideaton"
+                                        socialshare-popup-height="300"
+                                        socialshare-popup-width="400">
+                                    <button class="btn-floating button-twitter"><i class="fa fa-twitter"></i></button>
+                                </a>
+                                <a
+                                        socialshare
+                                        socialshare-provider="google"
+                                        socialshare-url="www.ideaton.cl/#/detalle-idea/{{id_idea}}"
+                                        socialshare-popup-height="300"
+                                        socialshare-popup-width="400">
+                                    <button class="btn-floating button-google"><i class="fa fa-google-plus"></i></button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <img class="responsive-img" src="app/images/todos.png">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <br>
+        <h5 class="titulo">Imágenes</h5>
+        <div class="card-panel">
+            <div class="row">
+                <div class="col s12 m4" >
+                    <img materialboxed class="materialboxed responsive-img" ng-src="{{img1}}">
+                </div>
+                <div class="col s12 m4" >
+                    <img materialboxed class="materialboxed responsive-img" ng-src="{{img2}}">
+                </div>
+                <div class="col s12 m4" >
+                    <img materialboxed class="materialboxed responsive-img" ng-src="{{img3}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Cajon de comentarios-->
+<div class="container" ng-controller="CommentCtrl">
+    <div class="row">
+        <h5 class="titulo">Comentarios</h5>
+        <div class="col s12 m12 l12">
+            <div class="card-panel " ng-repeat="comentario in comentarios">
+
+                <!--usuario que comenta-->
+                <div class="chip col s7 m3 l2">
+                    <!--<img src="../images/usuario.svg" alt="Contact Person">-->
+                    {{comentario.user.first_name}}  {{comentario.user.last_name}}
+                </div>
+                <br>
+                <br class="hide-on-large-only">
+                <p class="text">
+                    {{comentario.commentary}}
+                </p>
+            </div>
+        </div>
+        <div ng-controller="ValidarReg">
+        <form class="col s12 m12 l12" ng-show="islogin" ng-controller="CommentCtrl">
+            <div class="card-panel">
+
+                <!--usuario que comenta-->
+                <div class="chip col s7 m3 l2">
+                    <!--<img src="app/images/usuario.svg" alt="Contact Person">-->
+                    {{nombre_user}}
+                </div>
+                <br>
+                <br class="hide-on-large-only">
+                <textarea ng-model="postcomentario" id="comentario" type="text" class="validate white"></textarea>
+                <label for="comentario"></label>
+                <button  ng-click="PostComentario()"  class="btn">Comentar</button>
+            </div>
+        </form>
+            <div ng-hide="islogin" class="center">
+                <a class="btn blue darken-4" href='#login-modal' modal>Ingresa para comentar!</a>
+            </div>
+        </div>
+    </div>
+</div>

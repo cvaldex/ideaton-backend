@@ -1,0 +1,21 @@
+.video-container {
+    overflow: hidden;
+    background: #000;
+}
+.video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+.video-container video.fillWidth {
+    width: 100%;
+}
+div.video-container{
+    top: -80px;
+}
+@media (max-width: 600px){
+    div.video-container{
+        top: 8px;
+    }
+}

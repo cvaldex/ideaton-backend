@@ -1,0 +1,239 @@
+<header>
+    <div id="video" class="homepage-hero-module">
+        <div class="video-container center">
+            <div class="filter"></div>
+            <video autoplay loop class="fillWidth">
+                <source src="app/videos/The-Boulevard.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+            </video>
+        </div>
+    </div>
+    <br>
+    <br class="hide-on-med-and-up">
+
+    <!--contador-->
+    <div id="countdown" >
+        <!--{{loadcount()}}-->
+        <h3 class="center white-text flow-text">Etapa Ideación | Sólo quedan:</h3>
+        <div id="clock">
+            <div countdown='' date='November 10, 2016 23:59:59'>&nbsp;</div>
+        </div>
+        <!--<div  ng-bind-html="clock"></div>-->
+        <div id="units">
+            <span class="white-text">Días</span>
+            <span class="white-text">Hrs</span>
+            <span class="white-text">Min</span>
+            <span class="white-text">Seg</span>
+        </div>
+        <div class="row">
+            <div class="center">
+                <h5 class="white-text col s12 flow-text">¿Qué harías si el mundo no estuviera diseñado para ti? Sube tu idea y súmate a una nueva forma de pensar la discapacidad.</h5>
+            </div>
+        </div>
+    </div>
+    <br>
+</header>
+
+<!--etapas-->
+<section class="embed-container hide">
+    <iframe src="app/lib/time-line/index.html#etapas" frameborder="0"></iframe>
+</section>
+
+<!--categorias-->
+<section>
+    <h4 class="titulo">Inspírate y aporta tus mejores ideas</h4>
+    <article class="row">
+        <div class="col s12 m3">
+            <div ng-style="cardcopia" class="card-panel cardfome hoverable z-depth-1">
+                <span>Ideatón apuesta por encontrar ideas que aporten con la inclusión de las personas
+                        con discapacidad y que estén enfocadas en cualquiera de estos ámbitos.</span>
+                <!--<div class="card-content">
+                    <p>Ideatón apuesta por encontrar ideas que aporten con la inclusión de las personas
+                        con discapacidad y que estén enfocadas en cualquiera de estos ámbitos.</p>
+                </div>-->
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div master class="card purple hoverable z-depth-2" ui-sref="detalle-categoria({ categoriaName: 'entretencion'})">
+                <div class="card-image ">
+                    <img src="app/images/entretencion.png">
+                    <h1 class="card-title"><strong>Entretención</strong></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="card amber hoverable z-depth-3" ui-sref="detalle-categoria({ categoriaName: 'vida-diaria'})">
+                <div class="card-image">
+                    <img src="app/images/vida-diaria.png">
+                    <h1 class="card-title"><strong>Vida Diaria</strong></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="card teal hoverable z-depth-4" ui-sref="detalle-categoria({ categoriaName: 'educacion'})">
+                <div class="card-image">
+                    <img src="app/images/educacion.png">
+                    <h1 class="card-title"><strong>Educación</strong></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="card blue darken-4 hoverable z-depth-5" ui-sref="detalle-categoria({ categoriaName: 'trabajo'})">
+                <div class="card-image">
+                    <img src="app/images/trabajo.png">
+                    <h1 class="card-title"><strong>Trabajo</strong></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="card pink hoverable z-depth-6">
+                <div class="card-image">
+                    <img src="app/images/transporte.png" ui-sref="detalle-categoria({ categoriaName: 'transporte'})">
+                    <h1 class="card-title"><strong>Transporte</strong></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="card red hoverable z-depth-7" ui-sref="detalle-categoria({ categoriaName: 'comunicacion'})">
+                <div class="card-image">
+                    <img src="app/images/comunicacion.png">
+                    <h1 class="card-title"><strong>Comunicación</strong></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="card brown hoverable z-depth-8" ui-sref="detalle-categoria({ categoriaName: 'todas'})">
+                <div class="card-image">
+                    <img src="app/images/todos.png">
+                    <h1 class="card-title"><strong>Todas</strong></h1>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+<!--estadisticas ideaton-->
+<section class="red z-depth-1 hide">
+    <br>
+    <article class="white-text">
+        <h4 class="titulo">estadísticas aquí</h4>
+        <hr>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores commodi cum debitis dolorem enim facere
+            ipsa iusto minima nemo omnis quam, quos repellat sapiente sequi tempore tenetur, voluptates! In, incidunt?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores commodi cum debitis dolorem enim facere
+            ipsa iusto minima nemo omnis quam, quos repellat sapiente sequi tempore tenetur, voluptates! In, incidunt?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores commodi cum debitis dolorem enim facere
+            ipsa iusto minima nemo omnis quam, quos repellat sapiente sequi tempore tenetur, voluptates! In, incidunt?</p>
+    </article>
+    <br>
+</section>
+
+<!--Jurado-->
+<section id="jurado" ng-controller="JuradosCtrl" class="hide">
+    <h4 class="titulo col s12">Jurado</h4>
+    <div class="white z-depth-1">
+        <br>
+        <div class="center">
+            <div class="row">
+                <div class="col s12 m2 offset-m2">
+                    <img ng-src='{{jurados[0].imagen}}' class="circle responsive-img hoverable z-depth-1" alt="">
+                    <h5>{{jurados[0].nombre}}</h5>
+                    <p>{{jurados[0].cargo}}</p>
+                </div>
+                <div class="col s12 m2">
+                    <img ng-src='{{jurados[1].imagen}}' class="circle responsive-img hoverable z-depth-1" alt="">
+                    <h5>{{jurados[1].nombre}}</h5>
+                    <p>{{jurados[1].cargo}}</p>
+                </div>
+                <div class="col s12 m2">
+                    <img ng-src='{{jurados[2].imagen}}' class="circle responsive-img hoverable z-depth-1" alt="">
+                    <h5>{{jurados[2].nombre}}</h5>
+                    <p>{{jurados[2].cargo}}</p>
+                </div>
+                <div class="col s12 m2">
+                    <img ng-src='{{jurados[3].imagen}}' class="circle responsive-img hoverable z-depth-1" alt="">
+                    <h5>{{jurados[3].nombre}}</h5>
+                    <p>{{jurados[3].cargo}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2 offset-m3">
+                    <img ng-src='{{jurados[4].imagen}}' class="circle responsive-img hoverable z-depth-1" alt="">
+                    <h5>{{jurados[4].nombre}}</h5>
+                    <p>{{jurados[4].cargo}}</p>
+                </div>
+                <div class="col s12 m2">
+                    <img ng-src='{{jurados[5].imagen}}' class="circle responsive-img hoverable z-depth-1" alt="">
+                    <h5>{{jurados[5].nombre}}</h5>
+                    <p>{{jurados[5].cargo}}</p>
+                </div>
+                <div class="col s12 m2">
+                    <img ng-src='{{jurados[6].imagen}}' class="circle responsive-img hoverable z-depth-1" alt="">
+                    <h5>{{jurados[6].nombre}}</h5>
+                    <p>{{jurados[6].cargo}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--noticias-->
+<section ng-controller="NoticiasCtrl">
+    <h4 class="titulo">Noticias</h4>
+    <article class="row grey darken-4 z-depth-1">
+        <div class="row">
+            <a ui-sref="noticias" class="btn right col m1 green">Más</a>
+        </div>
+        <div class="col s12 m4 l4" ng-repeat="noticia in noticias | orderBy:'-id' | limitTo:3">
+            <div class="card hoverable medium">
+                <div class="card-image">
+                    <img ng-src="{{noticia.imagen}}">
+                    <h1 class="card-title">{{noticia.titulo}}</h1>
+                </div>
+                <div class="card-content">
+                    <p>{{noticia.texto_breve}}</p>
+                </div>
+                <div class="card-action center">
+                    <a class="btn green accent-4" ui-sref="detalle-noticia({ noticiaID: noticia.id})">Ver Noticia</a>
+                </div>
+            </div>
+        </div>
+        <div class="row"></div>
+    </article>
+</section>
+
+<!--redes sociales-->
+<section>
+
+</section>
+
+<!--Auspiciadores -->
+<section class="row">
+    <!--h4>Auspician</h4-->
+    <div class="col s12 m6 l3">
+        <h6>Esta es una iniciativa de:</h6>
+        <div class="center">
+            <a href="http://teleton.cl"><img class="img-blanco-negro" src="app/images/teleton.png"></a>
+        </div>
+    </div>
+    <div class="col s12 m6 l3">
+        <h6>En alianza con:</h6>
+        <div class="center">
+            <a href="https://www.mutual.cl"><img class="img-blanco-negro" src="app/images/mutual.png"></a>
+        </div>
+    </div>
+
+    <div class="col s12 m6 l3">
+        <h6>Con la colaboración de:</h6>
+        <div class="center">
+            <a href="http://everis.cl"><img class="img-blanco-negro" src="app/images/everis.png"></a>
+        </div>
+    </div>
+
+    <div class="col s12 m6 l3">
+        <br>
+        <div class="center">
+            <a href="http://corfo.cl"><img class="img-blanco-negro" src="app/images/corfo.png"></a>
+        </div>
+    </div>
+</section>

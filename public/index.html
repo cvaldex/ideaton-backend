@@ -1,0 +1,244 @@
+<!doctype html>
+<!-- _____                     _   _ ____ ____-->
+<!--|_   _|__  __ _ _ __ ___ | | | / ___/ ___|-->
+<!--  | |/ _ \/ _` | '_ ` _ \| | | \___ \___ \-->
+<!--  | |  __/ (_| | | | | | | |_| |___) |__) |-->
+<!--  |_|\___|\__,_|_| |_| |_|\___/|____/____/-->
+
+<!--********************************************************************************************************************
+Querido Programador:
+Cuando escribimos este código, sólo Dios y nosotros
+sabíamos como funcionaba.
+Ahora, ¡sólo Dios lo sabe!
+
+Así que si está tratado de 'optimizar'
+este sitio web y fracasa (seguramente),
+por favor, incremente el siguiente contador
+como una advertencia
+para el siguiente colega:
+
+total_horas_perdidas_aquí = 0;
+*********************************************************************************************************************-->
+
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="app/lib/materialize/dist/css/materialize.css">
+    <link rel="stylesheet" href="app/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="app/lib/animate.css/animate.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="app/css/video%20header.css">
+    <link rel="stylesheet" href="app/css/style.css">
+    <link rel="stylesheet" href="app/css/countdown.css">
+    <link rel="stylesheet" href="app/lib/sweetalert/dist/sweetalert.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo+Paaji">
+    <link rel="shortcut icon" href="app/images/favicon.ico"/>
+    <title>Ideatón: Ideas Inclusivas</title>
+</head>
+<body class="grey lighten-3" ng-app="ideaton">
+
+    <!--navbar-->
+    <div class="navbar-fixed">
+        <nav class="grey darken-4">
+            <div class="nav-wrapper" ng-controller="ValidarReg">
+                <a href="#" class="button-collapse" data-activates="slide-out"><i class="material-icons">menu</i></a>
+                <a ui-sref="inicio" class="brand-logo"><img class="hide-on-small-only" src="app/images/Ideatón-Logo.svg" alt=""><img class="hide-on-med-and-up" src="app/images/ampolleta.svg" alt=""></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li ui-sref-active="active"><a ui-sref="inicio">Inicio</a></li>
+                    <li ui-sref-active="active"><a class='dropdown-button' href='javascript:void(0);' data-activates='categorias' dropdown data-hover="true">Ideas</a></li>
+                    <li ui-sref-active="active"><a ui-sref="noticias">Noticias</a></li>
+                    <li ui-sref-active="active"><a href="/app/archivos/Bases%20Concurso%20Ideaton%20-%20V.%201.0.pdf" target="_blank">Bases</a></li>
+                    <li><a href='' ng-click="Validar()">Sube tu Idea</a>
+                    <li ng-show="islogin"><a href='javascript:void(0);' data-activates='salir' dropdown data-hover="true"><i class="tiny material-icons right usericon">account_circle</i>{{usuario}}</a></li>
+                    <!--<li ng-show="!isReg" ng-hide="!islogin" ui-sref-active="active"><a ui-sref="registrarse">Sube tu Idea</a></li>
+                    <li ng-show="isReg"  ui-sref-active="active"><a ui-sref="sube-tu-idea">Sube tu Idea</a></li>
+                    <li ng-hide="islogin"><a href='#login-modal' modal>Sube tu Idea</a></li>-->
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!--estructura del dropdown-->
+    <ul id='categorias' class='dropdown-content grey darken-4'>
+        <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'vida-diaria'})">Vida Diaria</a></li>
+        <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'educacion'})">Educación</a></li>
+        <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'trabajo'})">Trabajo</a></li>
+        <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'transporte'})">Transporte</a></li>
+        <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'comunicacion'})">Comunicación</a></li>
+        <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'entretencion'})">Entretención</a></li>
+        <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'todas'})">Todas</a></li>
+    </ul>
+
+    <!--escructura del dropdown salir-->
+    <ul id="salir" class="dropdown-content grey darken-4" ng-controller="ValidarReg">
+        <li><a href="" ng-click="logout()" class="white-text">Salir <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+    </ul>
+
+    <!--menu lateral version movil-->
+    <ul id="slide-out" class="side-nav grey darken-4" ng-controller="ValidarReg">
+        <li class="white-text"><img id="logo-nav-bar" src="app/images/Ideatón-Logo.svg" alt=""></li>
+        <li ng-show="islogin">
+            <div class="userView">
+                <a href="#!user" ng-click="logout()"><img class="circle" src="app/images/user.svg"></a>
+                <a href="#!name" ng-click="logout()"><span class="white-text name">{{usuario}}</span></a>
+                <a href="#!email" ng-click="logout()"><span class="white-text email">{{email}}</span></a>
+            </div>
+        </li>
+        <li><div class="divider"></div></li>
+        <li class="white-text" ui-sref-active="active"><a class="white-text" ui-sref="inicio">Inicio</a></li>
+        <li class="white-text" ui-sref-active="active">
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header">
+                        <a class="white-text">Ideas</a>
+                    </div>
+                    <div class="collapsible-body grey darken-3">
+                        <ul>
+                            <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'vida-diaria'})">Vida Diaria</a></li>
+                            <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'educacion'})">Educación</a></li>
+                            <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'trabajo'})">Trabajo</a></li>
+                            <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'transporte'})">Transporte</a></li>
+                            <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'comunicacion'})">Comunicación</a></li>
+                            <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'entretencion'})">Entretención</a></li>
+                            <li><a class="white-text" ui-sref="detalle-categoria({ categoriaName: 'todas'})">Todas</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="white-text" ui-sref-active="active"><a class="white-text" ui-sref="noticias">Noticias</a></li>
+        <li class="white-text" ui-sref-active="active"><a class="white-text" ui-sref="bases">Bases</a></li>
+        <li class="white-text"><a class="white-text" href='' ng-click="Validar()">Sube tu Idea</a>
+    </ul>
+
+    <!--estructura del modal/login-->
+    <div id="login-modal" class="modal container">
+        <div class="modal-content modal-responsive">
+            <div class="row">
+                <div class="section center">
+                    <img class="logo-modal" src="app/images/ideaton.png" alt="">
+                </div>
+                <div class="create-list-login-registro center create-list-connect-btn" ng-controller="ValidarReg">
+                    <h3 class="thin">Sube tu <strong class="bold">Idea</strong></h3>
+                    <p data-ng-show="!islogin" class="flow-text">Selecciona una cuenta para iniciar sesión.</p>
+                    <div class="row">
+                        <div ng-controller="LoginGoogleCtrl" class="col s6">
+                            <button class="button-google btn col s8 offset-s4" ng-click="googleLogin()" data-ng-show="!islogin"><i class="fa fa-google-plus" aria-hidden="true"></i>  Google</button>
+                        </div>
+                        <div ng-controller="LoginFaceCtrl" class="col s6">
+                            <button class="button-facebook btn col s8" data-ng-show="!islogin" data-ng-click="IntentLogin()" ><i class="fa fa-facebook" aria-hidden="true"></i>  Facebook</button>
+                        </div>
+                    </div>
+                    <div>
+                        <a ng-show="!isReg" ng-hide="!islogin" ui-sref="registrarse">Rellena tus Datos, para Continuar</a>
+                        <a ng-show="isReg" ui-sref="sube-tu-idea">Sube tu Idea</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--PreLOADER-->
+    <div id="cargando-modal" class="modal container">
+        <div class="modal-content modal-responsive">
+            <div class="row">
+                <div class="section center">
+                    <div class="preloader-wrapper big active">
+                        <div class="spinner-layer spinner-blue-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div><div class="gap-patch">
+                            <div class="circle"></div>
+                        </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--inyeccion de vistas-->
+    <div ui-view></div>
+
+    <!--boton flotante para subir al top-->
+    <div class="ir-arriba fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a class="btn-floating btn-large green">
+            <i class="fa fa-arrow-up"></i>
+        </a>
+    </div>
+
+
+    <section>
+        <img src="app/images/sec/toasty.png" alt="" id="donfran" class="animated hide">
+        <audio id="sound" preload="auto">
+            <source src="app/images/sec/toasty-sound.ogg" type="audio/ogg">
+            <source src="app/images/sec/toasty-sound.mp3" type="audio/wav">
+        </audio>
+    </section>
+
+    <!--footer-->
+    <footer class="page-footer white-text light-green z-depth-1">
+        <div class="container center">
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="" data-unsp-sanitized="clean">Sigue y comenta con #Ideatón en:</h5>
+                    <div class="follow_us redes-sociales center">
+                        <a href="https://twitter.com/teleton" target="_blank" data-unsp-sanitized="clean"><i class="fa fa-twitter"><p> Twitter </p></i></a>
+                        <a href="https://www.facebook.com/teletonchile" target="_blank" data-unsp-sanitized="clean"><i class="fa fa-facebook"><p> Facebook </p></i></a>
+                        <a href="https://www.instagram.com/teleton_chile/" target="_blank" data-unsp-sanitized="clean"><i class="fa fa-instagram"><p> Instagram </p></i></a>
+                        <a href="https://www.flickr.com/photos/teletonchile" target="_blank" data-unsp-sanitized="clean"><i class="fa fa-flickr"><p> Flickr </p></i></a>
+                        <a href="https://plus.google.com/+teletonchile" target="_blank" data-unsp-sanitized="clean"><i class="fa fa-google-plus"><p> Google + </p></i></a>
+                        <a href="https://www.youtube.com/c/teletonchile" target="_blank" data-unsp-sanitized="clean"><i class="fa fa-youtube"><p> Youtube </p></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="light-green darken-1">
+            <div class="container">
+                <div class="row">
+                    <a class="col s12 m6 white-text">© 2016 Copyright IDEATON. Todos los derechos reservados.</a>
+                    <a id="team" ui-sref="equipo" class="col s12 m4 offset-m2 white-text right-align">Web App Developers #TeamUSS</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="app/lib/jquery/dist/jquery.js"></script>
+    <script src="app/lib/materialize/dist/js/materialize.js"></script>
+    <script src="app/lib/angular/angular.js"></script>
+    <script src="app/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="app/lib/angular-materialize/src/angular-materialize.js"></script>
+    <script src="app/lib/angular-facebook/lib/angular-facebook.js"></script>
+    <script src="app/lib/ng-google-signin/dist/ng-google-signin.js"></script>
+    <script src="app/lib/ngstorage/ngStorage.js"></script>
+    <script src="app/lib/angular-base64-upload/dist/angular-base64-upload.js"></script>
+    <script src="app/lib/angular-youtube-mb/src/angular-youtube-embed.js"></script>
+    <script src="app/lib/ngSweetAlert/SweetAlert.js"></script>
+    <script src="app/lib/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="app/lib/angular-sanitize/angular-sanitize.js"></script>
+    <script src="app/js/app.js"></script>
+    <script src="app/js/facebook.js"></script>
+    <script src="app/js/google.js"></script>
+    <script src="app/js/rutas.js"></script>
+    <script src="app/js/countdown.js"></script>
+    <script src="app/js/validacion.js"></script>
+    <script src="app/js/registrar.js"></script>
+    <script src="app/js/subir_idea.js"></script>
+    <script src="app/js/detalle-idea.js"></script>
+    <script src="app/lib/konami-js/konami.js"></script>
+    <script src="app/lib/angular-socialshare/dist/angular-socialshare.js"></script>
+    <script src="app/js/inicio.js"></script>
+    <script src="app/js/detalle-categoria.js"></script>
+    <script src="app/js/detalle-noticia.js"></script>
+    <script src="app/js/script.js"></script>
+    <script src="app/js/angular-environment/angular-environment.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57de621f528e964c"></script>
+    <script src="app/js/toasty.js"></script>
+
+</body>
+</html>
