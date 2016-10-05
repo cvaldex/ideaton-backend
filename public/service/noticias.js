@@ -100,7 +100,7 @@ angular.module('noticiasService', [])
                 var jsonHeader = {headers: {'Content-Type': 'application/json', 'Authorization': tokenSet}};
                 $http.delete(parseUrl + objectId + "/", jsonHeader)
                     .success(function(data){
-                        console.log('Noticia eliminada for eva!');
+                        console.log('Noticia eliminada!');
                         alert("Noticia eliminada correctamente...");
                         location.reload();
                     }).error(function(data) {

@@ -22,6 +22,9 @@
         <td class="allR tablaBtn">
             <button type="button" class="btn btn-info btn-lg btnTabla" ng-click="mostrarUpdIdea(idea)">Modificar</button>
         </td>
+        <td class="allR tablaBtn">
+            <button type="button" class="btn btn-info btn-lg btnTabla" ng-click="delIdea(idea)">Eliminar</button>
+        </td>
         <td class="allR tablaBtn" title="'Estado'" sortable="'state'">
             <button type="button" ng-if="idea.state === 0" class="btn btn-info btn-lg btnTabla" ng-click="mostrarDetalleAprobBaja(idea)">Aprobar</button>
             <button type="button" ng-if="idea.state === 1" class="btn btn-info btn-lg btnTabla" style="padding-left: 8px;" ng-click="mostrarDetalleAprobBaja(idea)">Deshabilitar</button>

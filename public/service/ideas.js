@@ -129,6 +129,19 @@ angular.module('ideasService', [])
                         console.log('Se ha producido un error');
                         alert("Se ha producido un error...");
                 });
+            },
+            //Remove a db object
+            remove: function(objectId ,tokenSet) {
+                var jsonHeader = {headers: {'Content-Type': 'application/json', 'Authorization': tokenSet}};
+                $http.delete(parseUrl + objectId + "/", jsonHeader)
+                    .success(function(data){
+                        console.log('Idea eliminada!');
+                        alert("Idea eliminada correctamente...");
+                        location.reload();
+                    }).error(function(data) {
+                        console.log('Se ha producido un error');
+                        alert("Se ha producido un error...");
+                });
             }
         }
     })

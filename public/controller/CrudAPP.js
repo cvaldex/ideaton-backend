@@ -363,6 +363,7 @@ angular.module("MainApp", [
         $scope.mostrarDetalleIdea = mostrarDetalleIdea;
         $scope.mostrarDetalleAprobBaja = mostrarDetalleAprobBaja;
         $scope.mostrarUpdIdea = mostrarUpdIdea;
+        $scope.delIdea = delIdea;
         $scope.textBenef = textBenef;
 
         //--------------------------------------------------------------------------------------------------------------
@@ -396,8 +397,8 @@ angular.module("MainApp", [
             }
         }
 
-        function delNoticia(idNoticia){
-            parseNo.remove(idNoticia, $scope.tokenAuth);
+        function delNoticia(noticia){
+              parseNo.remove(noticia, $scope.tokenAuth);
         }
 
         //--- Seccion jurados ------------------------------------------------------------------------------------------
@@ -426,6 +427,17 @@ angular.module("MainApp", [
         function delJurado(idJurado){
             parseJu.remove(idJurado, $scope.tokenAuth);
             mostrarTablaJurados();
+        }
+
+        function delIdea(idea){
+          if (confirm('¿Seguro que deseas eliminar la Idea? ' + idea.title )) {
+            console.log(idea);
+              parseId.remove(idea.id, $scope.tokenAuth);
+            } else {
+              // Do nothing!
+            }
+
+            mostrarTablaIdeas();
         }
 
         //--- Seccion ideas --------------------------------------------------------------------------------------------
