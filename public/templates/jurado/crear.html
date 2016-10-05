@@ -1,0 +1,22 @@
+<h4>Creacion de nuevo Jurado</h4>
+<form class="create-form" role="form" ng-submit="createNewJurado(newJurado)">
+    <div class="form-group">
+        <label style="font-size:1rem;">Nombre completo:</label>
+        <input type="text" style="font-size:1.2rem;" class="form-control" maxlength="100" ng-model="newJurado.nombre" placeholder="Ingresa el nombre completo del jurado" required>
+    </div>
+    <div class="form-group">
+        <label style="font-size:1rem;">Cargo:</label>
+        <input type="text" style="font-size:1.2rem;" class="form-control" maxlength="100" ng-model="newJurado.cargo" placeholder="Ingresa el cargo del jurado" required>
+    </div>
+    <div class="form-group">
+        <label style="font-size:1rem;">Presentacion:</label>
+        <textarea style="font-size:1.2rem;" class="form-control" rows="4" maxlength="500" ng-model="newJurado.presentacion" placeholder="Ingresa su presentacion" required></textarea>
+    </div>
+    <div class="form-group">
+        <label style="font-size:1rem;">Imagen:</label><br/>
+        <label style="font-size:1rem; color: red;" ng-if="needimage">Ingresa una imagen, es obligatorio...</label><br/>
+        <input type="file" ng-files="addItemImage($files, 0)" />
+    </div>
+    <button type="submit" class="btn btn-info btn-lg btnTabla">Agregar</button>
+    <button type="button" class="btn btn-default btn-lg pull-right btnTabla" ng-click="mostrarTablaJurados()">Cancelar</button>
+</form>

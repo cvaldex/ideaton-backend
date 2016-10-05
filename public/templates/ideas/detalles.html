@@ -1,0 +1,92 @@
+<div class="form-group">
+    <label style="font-size:1rem;">Titulo:</label>
+    <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="currentIdea.title" placeholder="" readonly>
+</div>
+<div class="form-group">
+    <label style="font-size:1rem;">Breve descripcion:</label>
+    <textarea style="font-size:1.2rem;" class="form-control" rows="5" placeholder="" readonly>{{currentIdea.short_description}}</textarea>
+</div>
+<div class="form-group">
+    <label style="font-size:1rem;">Descripcion:</label>
+    <textarea style="font-size:1.2rem;" class="form-control" rows="5" placeholder="" readonly>{{currentIdea.description}}</textarea>
+</div>
+<table class="tablasResultado">
+    <tr>
+        <th class="colmDeta2">
+            <div class="form-group">
+                <label style="font-size:1rem;">Nombre creador:</label>
+                <input type="text" style="font-size:1.2rem;" class="form-control" ng-value="currentIdea.user.first_name + ' ' + currentIdea.user.last_name" placeholder="" readonly>
+            </div>
+        </th>
+        <th class="colmDeta2">
+            <div class="form-group">
+                <label style="font-size:1rem;">Correo creador:</label>
+                <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="currentIdea.user.email" placeholder="" readonly>
+            </div>
+        </th>
+    </tr>
+    <tr>
+        <th class="colmDeta2">
+            <div class="form-group">
+                <label style="font-size:1rem;">Comuna creador:</label>
+                <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="currentIdea.user.commune" placeholder="" readonly>
+            </div>
+        </th>
+        <th class="colmDeta2">
+            <div class="form-group">
+                <label style="font-size:1rem;">Estado:</label>
+                <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="ideaTemp.stat" placeholder="" readonly>
+            </div>
+        </th>
+    </tr>
+    <tr>
+        <th class="colmDeta2">
+            <div class="form-group">
+                <label style="font-size:1rem;">Discapacidad beneficiada:</label>
+                <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="ideaTemp.benef" placeholder="" readonly>
+            </div>
+        </th>
+        <th class="colmDeta2">
+            <div class="form-group">
+                <label style="font-size:1rem;">Categoria:</label>
+                <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="ideaTemp.categoria" placeholder="" readonly>
+            </div>
+        </th>
+    </tr>
+</table>
+<table class="tablasResultado">
+    <tr>
+        <th class="colmDeta2">
+            <div class="form-group">
+                <label style="font-size:1rem;">Imagen principal:</label><br/>
+                <img class="formatoImagenGen" ng-src="{{currentIdea.main_image}}"/>
+            </div>
+        </th>
+        <th class="colmDeta2">
+            <div class="form-group">
+                <label style="font-size:1rem;">Segunda imagen:</label><br/>
+                <img class="formatoImagenGen" ng-src="{{currentImgsIdea[0].image}}"/><br/>
+            </div>
+        </th>
+    </tr>
+    <tr>
+        <th class="colmDeta2">
+            <div class="form-group">
+                <label style="font-size:1rem;">Tercera imagen:</label><br/>
+                <img class="formatoImagenGen" ng-src="{{currentImgsIdea[1].image}}"/><br/>
+            </div>
+        </th>
+        <th class="colmDeta2">
+            <div class="form-group">
+                <label style="font-size:1rem;">Cuarta imagen:</label><br/>
+                <img class="formatoImagenGen" ng-src="{{currentImgsIdea[2].image}}"/><br/>
+            </div>
+        </th>
+    </tr>
+</table>
+<div class="form-group">
+    <label style="font-size:1rem;">Url video:</label><br/>
+    <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="currentIdea.url_video" placeholder="" readonly>
+    <youtube-video video-url="currentIdea.url_video" class="videoNoticia"></youtube-video>
+</div>
+<button type="button" class="btn btn-default btn-lg pull-right btnTabla" ng-click="mostrarTablaIdeas()">Volver</button>

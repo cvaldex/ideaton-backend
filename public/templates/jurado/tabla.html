@@ -1,0 +1,30 @@
+<!-- Titulo y boton agregar nuevo -->
+<table class="tablasResultado">
+    <tr>
+        <th class="colmTlt">
+            <h4>Jurados registrados</h4>
+        </th>
+        <th class="colmAdd">
+            <button type="button" class="btn btn-info btn-lg btnAgregar" ng-click="mostrarNewJurado()">Agregar Nuevo</button>
+        </th>
+    </tr>
+</table>
+<table ng-table="tableParamsJu" class="table tablasResultado" show-filter="true">
+    <tr ng-repeat="jurado in $data">
+        <td style="width: 200px" title="'ID'" filter="{ id: 'number'}" sortable="'id'">
+            {{jurado.id}}
+        </td>
+        <td style="width: 400px" title="'Nombre completo'" filter="{ nombre: 'text'}" sortable="'nombre'">
+            {{jurado.nombre}}
+        </td>
+        <td class="allR tablaBtn">
+            <button type="button" class="btn btn-info btn-lg btnTabla" ng-click="mostrarDetalleJurado(jurado)">Detalles</button>
+        </td>
+        <td class="allR tablaBtn">
+            <button type="button" class="btn btn-info btn-lg btnTabla" ng-click="mostrarUpdJurado(jurado)">Modificar</button>
+        </td>
+        <td class="allR tablaBtn">
+            <button type="button" class="btn btn-info btn-lg btnTabla" ng-click="mostrarDelJurado(jurado)">Eliminar</button>
+        </td>
+    </tr>
+</table>

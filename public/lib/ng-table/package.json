@@ -1,0 +1,54 @@
+{
+  "name": "ng-table",
+  "version": "1.0.0",
+  "author": "Vitalii Savchuk <esvit666@gmail.com>",
+  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/esvit/ng-table.git"
+  },
+  "main": "dist/ng-table.js",
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "coveralls": "~2.11.0",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.3",
+    "html-loader": "^0.4.3",
+    "jasmine-core": "^2.3.4",
+    "karma": "1.1.2",
+    "karma-chrome-launcher": "1.0.1",
+    "karma-coverage": "1.1.1",
+    "karma-firefox-launcher": "1.0.0",
+    "karma-jasmine": "1.0.2",
+    "karma-ng-html2js-preprocessor": "1.0.0",
+    "karma-phantomjs-launcher": "1.0.1",
+    "lodash": "~3.7.0",
+    "ngtemplate-loader": "github:wearymonkey/ngtemplate-loader#63e3461d8b1298de913e3528766068260915ae1f",
+    "node-sass": "^3.8.0",
+    "phantomjs-prebuilt": "2.1.7",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "typescript": "1.8.10",
+    "typings": "^1.2.0",
+    "webpack": "^2.1.0-beta.20",
+    "webpack-dev-server": "^2.1.0-beta.0",
+    "webpack-merge": "^0.14.1"
+  },
+  "scripts": {
+    "build": "webpack --env.debug",
+    "build:prod": "webpack --env.prod",
+    "build:full": "webpack --env.prod --env.debug",
+    "setup": "bower prune && bower install && npm run typings",
+    "test": "npm run tsc && karma start --single-run --no-auto-watch",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings install",
+    "watch:debug": "webpack --watch --env.debug",
+    "watch": "webpack --watch",
+    "webpack": "webpack"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "angular": "^1.2"
+  }
+}

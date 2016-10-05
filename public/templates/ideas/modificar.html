@@ -1,0 +1,118 @@
+<h4>Modificar Idea</h4>
+<form class="create-form" role="form" ng-submit="updateIdea(currentIdea, ideaTemp)">
+    <div class="form-group">
+        <label style="font-size:1rem;">Titulo:</label>
+        <input type="text" style="font-size:1.2rem;" class="form-control" maxlength="100" ng-model="currentIdea.title" placeholder="" required>
+    </div>
+    <div class="form-group">
+        <label style="font-size:1rem;">Breve descripcion:</label>
+        <textarea style="font-size:1.2rem;" class="form-control" rows="5" maxlength="140" placeholder="" ng-model="currentIdea.short_description" required>{{currentIdea.short_description}}</textarea>
+    </div>
+    <div class="form-group">
+        <label style="font-size:1rem;">Descripcion:</label>
+        <textarea style="font-size:1.2rem;" class="form-control" rows="5" maxlength="2000" placeholder="" ng-model="currentIdea.description" required>{{currentIdea.description}}</textarea>
+    </div>
+    <table class="tablasResultado">
+        <tr>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Nombre creador:</label>
+                    <input type="text" style="font-size:1.2rem;" class="form-control" ng-value="currentIdea.user.first_name + ' ' + currentIdea.user.last_name" placeholder="" readonly>
+                </div>
+            </th>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Correo creador:</label>
+                    <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="currentIdea.user.email" placeholder="" readonly>
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Comuna creador:</label>
+                    <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="currentIdea.user.commune" placeholder="" readonly>
+                </div>
+            </th>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Estado:</label>
+                    <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="ideaTemp.stat" placeholder="" readonly>
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Discapacidad beneficiada actual:</label>
+                    <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="ideaTemp.benef" placeholder="" readonly>
+                    <label for="selectedBenef" style="font-size:1rem;">Nueva discapacidad:</label>
+                    <select id="selectedBenef" ng-model="ideaTemp.idBenef" style="display: block" ng-init="ideaTemp.idBenef=''">
+                        <option value="">Seleccione una discapacidad... (Opcional)</option>
+                        <option value="1">Visual</option>
+                        <option value="2">Auditiva</option>
+                        <option value="3">Cognitiva</option>
+                        <option value="4">Fisica</option>
+                    </select>
+                </div>
+            </th>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Categoria actual:</label>
+                    <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="ideaTemp.categoria" placeholder="" readonly>
+                    <label for="selectedCate" style="font-size:1rem;">Nueva categoria:</label>
+                    <select id="selectedCate" ng-model="ideaTemp.idCat" style="display: block" ng-init="ideaTemp.idCat=''">
+                        <option value="">Seleccione una categoria... (Opcional)</option>
+                        <option value="1">Educacion</option>
+                        <option value="2">Vida diaria</option>
+                        <option value="3">Trabajo</option>
+                        <option value="4">Transporte</option>
+                        <option value="5">Comunicacion</option>
+                        <option value="6">Entretencion</option>
+                    </select>
+                </div>
+            </th>
+        </tr>
+    </table>
+    <table class="tablasResultado">
+        <tr>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Imagen principal:</label><br/>
+                    <input type="file" ng-files="addItemImage($files, 0)"/><br/>
+                    <img class="formatoImagenGen" ng-src="{{currentIdea.main_image}}"/>
+                </div>
+            </th>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Segunda imagen:</label><br/>
+                    <input type="file" ng-files="addItemImage($files, currentImgsIdea[0].id)" /><br/>
+                    <img class="formatoImagenGen" ng-src="{{currentImgsIdea[0].image}}"/><br/>
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Tercera imagen:</label><br/>
+                    <input type="file" ng-files="addItemImage($files, currentImgsIdea[1].id)" /><br/>
+                    <img class="formatoImagenGen" ng-src="{{currentImgsIdea[1].image}}"/><br/>
+                </div>
+            </th>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Cuarta imagen:</label><br/>
+                    <input type="file" ng-files="addItemImage($files, currentImgsIdea[2].id)" /><br/>
+                    <img class="formatoImagenGen" ng-src="{{currentImgsIdea[2].image}}"/><br/>
+                </div>
+            </th>
+        </tr>
+    </table>
+    <div class="form-group">
+        <label style="font-size:1rem;">Url video:</label><br/>
+        <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="currentIdea.url_video" placeholder="">
+        <youtube-video video-url="currentIdea.url_video" class="videoNoticia"></youtube-video>
+    </div>
+    <button type="submit" class="btn btn-info btn-lg btnTabla">Modificar</button>
+    <button type="button" class="btn btn-default btn-lg pull-right btnTabla" ng-click="mostrarTablaIdeas()">Volver</button>
+</form>

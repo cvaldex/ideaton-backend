@@ -1,0 +1,30 @@
+<!-- Titulo -->
+<table class="tablasResultado">
+    <tr>
+        <th class="colmTlt">
+            <h4>Ideas registradas</h4>
+        </th>
+        <th class="colmAdd">
+        </th>
+    </tr>
+</table>
+<table ng-table="tableParamsId" class="table tablasResultado" show-filter="true">
+    <tr ng-repeat="idea in $data">
+        <td style="width: 200px" title="'Discapacidad beneficiada'" filter="{ beneficiary: 'number'}" sortable="'beneficiary'">
+            {{idea.beneficiary}}.- {{textBenef(idea.beneficiary)}}
+        </td>
+        <td style="width: 400px" title="'Titulo'" filter="{ title: 'text'}" sortable="'title'">
+            {{idea.title}}
+        </td>
+        <td class="allR tablaBtn">
+            <button type="button" class="btn btn-info btn-lg btnTabla" ng-click="mostrarDetalleIdea(idea)">Detalles</button>
+        </td>
+        <td class="allR tablaBtn">
+            <button type="button" class="btn btn-info btn-lg btnTabla" ng-click="mostrarUpdIdea(idea)">Modificar</button>
+        </td>
+        <td class="allR tablaBtn" title="'Estado'" sortable="'state'">
+            <button type="button" ng-if="idea.state === 0" class="btn btn-info btn-lg btnTabla" ng-click="mostrarDetalleAprobBaja(idea)">Aprobar</button>
+            <button type="button" ng-if="idea.state === 1" class="btn btn-info btn-lg btnTabla" style="padding-left: 8px;" ng-click="mostrarDetalleAprobBaja(idea)">Deshabilitar</button>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,30 @@
+<!-- Titulo y boton agregar nuevo -->
+<table class="tablasResultado">
+    <tr>
+        <th class="colmTlt">
+            <h4>Noticias registradas</h4>
+        </th>
+        <th class="colmAdd">
+            <button type="button" class="btn btn-info btn-lg btnAgregar" ng-click="mostrarNewNoticia()">Agregar Nueva</button>
+        </th>
+    </tr>
+</table>
+<table ng-table="tableParamsNo" class="table tablasResultado" show-filter="true">
+    <tr ng-repeat="noticia in $data">
+        <td style="width: 200px" title="'Fecha'" filter="{ fecha: 'text'}" sortable="'fecha'">
+            {{noticia.fecha}}
+        </td>
+        <td style="width: 400px" title="'Titulo'" filter="{ titulo: 'text'}" sortable="'titulo'">
+            {{noticia.titulo}}
+        </td>
+        <td class="allR tablaBtn">
+            <button type="button" class="btn btn-info btn-lg btnTabla" ng-click="mostrarDetalleNoticia(noticia)">Detalles</button>
+        </td>
+        <td class="allR tablaBtn">
+            <button type="button" class="btn btn-info btn-lg btnTabla" ng-click="mostrarUpdNoticia(noticia)">Modificar</button>
+        </td>
+        <td class="allR tablaBtn">
+            <button type="button" class="btn btn-info btn-lg btnTabla" ng-click="mostrarDelNoticia(noticia)">Eliminar</button>
+        </td>
+    </tr>
+</table>

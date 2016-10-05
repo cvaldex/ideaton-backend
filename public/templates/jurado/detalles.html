@@ -1,0 +1,21 @@
+<div class="form-group">
+    <label style="font-size:1rem;">ID:</label>
+    <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="currentJurado.id" placeholder="" readonly>
+</div>
+<div class="form-group">
+    <label style="font-size:1rem;">Nombre completo:</label>
+    <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="currentJurado.nombre" placeholder="" readonly>
+</div>
+<div class="form-group">
+    <label style="font-size:1rem;">Cargo:</label>
+    <input type="text" style="font-size:1.2rem;" class="form-control" ng-model="currentJurado.cargo" placeholder="" readonly>
+</div>
+<div class="form-group">
+    <label style="font-size:1rem;">Presentacion:</label>
+    <textarea style="font-size:1.2rem;" class="form-control" rows="4" placeholder="" readonly>{{currentJurado.presentacion}}</textarea>
+</div>
+<div class="form-group">
+    <label style="font-size:1rem;">Imagen:</label><br/>
+    <img class="formatoImagenGen" ng-src="{{currentJurado.imagen}}"/>
+</div>
+<button type="button" class="btn btn-default btn-lg pull-right btnTabla" ng-click="mostrarTablaJurados()">Volver</button>

@@ -1,0 +1,19 @@
+machine:
+  node:
+    version: 6.3.1
+
+dependencies:
+  pre:
+    - npm install -g grunt-cli
+    - npm install -g bower
+    - npm install -g karma-cli
+    - npm prune && npm install
+    - npm run setup
+    - npm run build
+  cache_directories:
+    - node_modules
+    - bower_components
+
+test:
+  override:
+    - npm test

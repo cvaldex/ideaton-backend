@@ -1,0 +1,35 @@
+<h4>Modificar Noticia</h4>
+<form class="create-form" role="form" ng-submit="updateNoticia(updNoticia)">
+    <div class="form-group">
+        <label style="font-size:1rem;">Titulo: </label>
+        <input type="text" style="font-size:1.2rem;" maxlength="100" class="form-control" ng-model="updNoticia.titulo" placeholder="" required>
+    </div>
+    <div class="form-group">
+        <label style="font-size:1rem;">Texto Breve:</label>
+        <textarea style="font-size:1.2rem;" class="form-control" rows="5" maxlength="1000" ng-model="updNoticia.texto_breve" placeholder="" required></textarea>
+    </div>
+    <div class="form-group">
+        <label style="font-size:1rem;">Descripcion:</label>
+        <textarea style="font-size:1.2rem;" class="form-control" rows="5" maxlength="5000" ng-model="updNoticia.descripcion" placeholder="" required></textarea>
+    </div>
+    <table class="tablasResultado">
+        <tr>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Imagen:</label><br/>
+                    <input type="file" ng-files="addItemImage($files, 0)" placeholder=""/><br/>
+                    <img class="formatoImagenGen" ng-src="{{updNoticia.imagen}}"/>
+                </div>
+            </th>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Video de youtube:</label><br/>
+                    <input type="text" style="font-size:1.2rem;" maxlength="1000" class="form-control" ng-model="updNoticia.video" placeholder="">
+                    <youtube-video video-url="updNoticia.video" class="videoNoticia"></youtube-video>
+                </div>
+            </th>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-info btn-lg btnTabla">Modificar</button>
+    <button type="button" class="btn btn-default btn-lg pull-right btnTabla" ng-click="cancelarCrear()">Cancelar</button>
+</form>

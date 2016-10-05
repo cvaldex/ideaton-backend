@@ -1,0 +1,175 @@
+html,
+body {
+    background-color: #D5DBD8;
+    width: 100%;
+    height: 100%;
+    color: #4F534E;
+    background-image: url(../images/patternbnb.svg);
+}
+a {
+    color: #373A36;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #5bc0de;
+}
+
+.btn, .btn:focus {
+    outline: none !important;
+}
+
+.btn-link {
+    color: #373A36;
+    font-size: 24px;
+    text-decoration: none !important;
+}
+
+.btn-link:hover {
+    color: #5bc0de;
+}
+
+.sidebar a {
+    color: #5bc0de;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #EEE;
+}
+
+.logo {
+    padding: 15px;
+    height: 105px;
+    width: 215px;
+    margin-top: 5px;
+    margin-left: 3px;
+    background-color: #4F534E;
+    border-radius: 20px;
+}
+
+.sidebar {
+    display: none;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.sidebar > ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.sidebar .active {
+    background-color: #D5DBD8;
+}
+
+.sidebar .active > a {
+    text-decoration: none;
+    color: #2B2828;
+}
+
+.main .active span,
+.main .active > a {
+    color: #5bc0de;
+}
+
+.editing > button {
+    color: #5bc0de !important;
+}
+.editing > a {
+    color: #5bc0de !important;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #D5DBD8;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        width: 224px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        background-color: #2B2828;
+        border-right: 1px solid #7B807E;
+    }
+}
+
+.main {
+    padding-top: 96px;
+    padding-left: 24px;
+}
+
+.createBookmark {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.create-form, .edit-form {
+    padding: 20px;
+}
+
+.tablasResultado {
+    width: 1060px;
+}
+
+.tablasResultado span {
+    color: black;
+    text-decoration: underline;
+}
+
+.tablaBtn {
+    width: 120px;
+}
+
+.btnTabla {
+    color: black;
+    font-size: 90%;
+    text-align: center;
+    width: 120px;
+    padding: 2px;
+}
+
+.btnAgregar {
+    color: black;
+    font-size: 90%;
+    text-align: center;
+    width: 170px;
+}
+
+.colmDeta2 {
+    width: 50%;
+    vertical-align: top;
+}
+
+.colmAdd {
+    width: 50%;
+    text-align: right;
+}
+
+.colmTlt {
+    width: 50%;
+}
+
+.allR {
+    text-align: right;
+}
+
+.formatoImagenGen {
+    max-width: 500px;
+    max-height: 255px;
+}
+
+.videoNoticia {
+    width: 500px;
+    height: 255px;
+}

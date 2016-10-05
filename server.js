@@ -1,6 +1,5 @@
 #!/bin/env node
 var http = require('http');
-var compression = require('compression')
 var express = require('express');
 var app = express();
 
@@ -11,11 +10,7 @@ http.createServer(app).listen(app.get('port'), app.get('ip'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-app.use(compression({ threshold: 0 }));
-
-
 app.use(express.static('public'));
-
 
 /*
 app.get('/', function (req, res) {

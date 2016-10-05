@@ -1,0 +1,35 @@
+<h4>Creacion de nueva Noticia</h4>
+<form class="create-form" role="form" ng-submit="createNewNoticia(newNoticia)">
+    <div class="form-group">
+        <label style="font-size:1rem;">Titulo:</label>
+        <input type="text" style="font-size:1.2rem;" maxlength="100" class="form-control" ng-model="newNoticia.titulo" placeholder="Ingrese titulo" required>
+    </div>
+    <div class="form-group">
+        <label style="font-size:1rem;">Texto Breve:</label>
+        <textarea style="font-size:1.2rem;" class="form-control" rows="5" maxlength="1000" ng-model="newNoticia.texto_breve" placeholder="Ingrese una breve descripcion de la noticia" required></textarea>
+    </div>
+    <div class="form-group">
+        <label style="font-size:1rem;">Descripcion:</label>
+        <textarea style="font-size:1.2rem;" class="form-control" rows="5" maxlength="5000" ng-model="newNoticia.descripcion" placeholder="Describa la noticia" required></textarea>
+    </div>
+    <table class="tablasResultado">
+        <tr>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Imagen:</label><br/>
+                    <label style="font-size:1rem; color: red;" ng-if="needimage">Ingresa una imagen, es obligatorio...</label><br/>
+                    <input type="file" ng-files="addItemImage($files, 0)" placeholder=""/>
+                </div>
+            </th>
+            <th class="colmDeta2">
+                <div class="form-group">
+                    <label style="font-size:1rem;">Video de youtube:</label><br/>
+                    <input type="text" style="font-size:1.2rem;" maxlength="100" class="form-control" placeholder="Direccion del video, Ej: 'https://www.youtube.com/watch?v=Jgk3u44W2i4'" ng-model="newNoticia.video"/>
+                    <youtube-video video-url="newNoticia.video" class="videoNoticia"></youtube-video>
+                </div>
+            </th>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-info btn-lg btnTabla">Agregar</button>
+    <button type="button" class="btn btn-default btn-lg pull-right btnTabla" ng-click="cancelarCrear()">Cancelar</button>
+</form>

@@ -1,0 +1,22 @@
+<h4>Modificar Jurado</h4>
+<form class="create-form" role="form" ng-submit="updateJurado(currentJurado)">
+    <div class="form-group">
+        <label style="font-size:1rem;">Nombre completo:</label>
+        <input type="text" style="font-size:1.2rem;" class="form-control" maxlength="100" ng-model="currentJurado.nombre" placeholder="Igrese el nombre" required>
+    </div>
+    <div class="form-group">
+        <label style="font-size:1rem;">Cargo:</label>
+        <input type="text" style="font-size:1.2rem;" class="form-control" maxlength="100" ng-model="currentJurado.cargo" placeholder="Ingrese el cargo" required>
+    </div>
+    <div class="form-group">
+        <label style="font-size:1rem;">Presentacion:</label>
+        <textarea style="font-size:1.2rem;" class="form-control" rows="4" maxlength="500" ng-model="currentJurado.presentacion" placeholder="Ingrese su presentacion" required></textarea>
+    </div>
+    <div class="form-group">
+        <label style="font-size:1rem;">Imagen:</label><br/>
+        <input type="file" ng-files="addItemImage($files, 0)" /><br/>
+        <img class="formatoImagenGen" ng-src="{{currentJurado.imagen}}"/>
+    </div>
+    <button type="submit" class="btn btn-info btn-lg btnTabla">Modificar</button>
+    <button type="button" class="btn btn-default btn-lg pull-right btnTabla" ng-click="mostrarTablaJurados()">Cancelar</button>
+</form>
