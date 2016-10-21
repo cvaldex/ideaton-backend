@@ -431,7 +431,7 @@ angular.module("MainApp", [
 
         function delIdea(idea){
           if (confirm('¿Seguro que deseas eliminar la Idea? ' + idea.title )) {
-            console.log(idea);
+            //console.log(idea);
               parseId.remove(idea.id, $scope.tokenAuth);
             } else {
               // Do nothing!

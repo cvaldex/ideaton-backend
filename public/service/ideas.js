@@ -48,7 +48,7 @@ angular.module('ideasService', [])
             },
             //Get a db object if there are more than one page
             getPage: function(page){
-                global = $http.get(parseUrl + '?page=' + page + '?format=json');
+                global = $http.get(parseUrl + '?page=' + page + '&format=json');
                 return global;
             },
             //Get a db object based on the id of the idea

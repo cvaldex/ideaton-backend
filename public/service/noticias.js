@@ -92,7 +92,7 @@ angular.module('noticiasService', [])
             },
             //Get the objects for the page if there's more than one
             getPage: function(page) {
-                global = $http.get(parseUrl + '?page=' + page + '/?format=json');
+                global = $http.get(parseUrl + '?page=' + page + '&format=json');
                 return global;
             },
             //Remove a db object
